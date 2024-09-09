@@ -1,4 +1,6 @@
-﻿namespace Maui.TikTok
+﻿using Maui.TikTok.Pages;
+
+namespace Maui.TikTok
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new HomePage();
         }
     }
 }

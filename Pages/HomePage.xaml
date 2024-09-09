@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="Maui.TikTok.Pages.HomePage"
+             x:Name="Reels"
              Title="HomePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid>
+        <CollectionView
+            x:Name="CvVideos"
+            HeightRequest="{Binding Height, Source={x:Reference Reels}}"
+            HorizontalOptions="Fill"
+            VerticalOptions="Center"
+            Scrolled="ItemsView_OnScrolled">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout
+                    Orientation="Vertical"
+                    SnapPointsType="MandatorySingle"
+                    SnapPointsAlignment="Center" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid
+                      HeightRequest="{Binding Height, Source={x:Reference Reels}}"
+                      HorizontalOptions="Fill"
+                      BackgroundColor="LightGreen">
+                        <toolkit:MediaElement
+                            Aspect="AspectFill"
+                            Source="{Binding Uri}"
+                            ShouldAutoPlay="True"
+                            ShouldLoopPlayback="True"
+                            ShouldShowPlaybackControls="False" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

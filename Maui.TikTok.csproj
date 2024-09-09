@@ -69,4 +69,6 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiTikTokHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>
