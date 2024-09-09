@@ -5,6 +5,26 @@
              x:Class="Maui.TikTok.Pages.HomePage"
              x:Name="Reels"
              Title="HomePage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <!-- Style for Labels -->
+            <Style TargetType="Label" x:Key="SideLabelStyle">
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HorizontalTextAlignment" Value="Center" />
+            </Style>
+
+            <!-- Style for Images -->
+            <Style TargetType="Image" x:Key="SideImageStyle">
+                <Setter Property="HeightRequest" Value="30" />
+                <Setter Property="WidthRequest" Value="30" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <Grid>
         <CollectionView
             x:Name="CvVideos"
@@ -23,14 +43,93 @@
                 <DataTemplate>
                     <Grid
                       HeightRequest="{Binding Height, Source={x:Reference Reels}}"
-                      HorizontalOptions="Fill"
-                      BackgroundColor="LightGreen">
+                      HorizontalOptions="Fill">
                         <toolkit:MediaElement
                             Aspect="AspectFill"
                             Source="{Binding Uri}"
                             ShouldAutoPlay="True"
                             ShouldLoopPlayback="True"
-                            ShouldShowPlaybackControls="False" />
+                            ShouldShowPlaybackControls="True" />
+
+                        <!-- side panel -->
+                        <StackLayout Orientation="Vertical"
+                             Grid.Row="0"
+                             Spacing="20"
+                             HorizontalOptions="End"
+                             VerticalOptions="End"
+                             Margin="0,0,10,40">
+
+                            <Grid HorizontalOptions="End"
+                              WidthRequest="60"
+                              HeightRequest="60">
+
+                                <Ellipse                  
+                                    Stroke="White"
+                                    WidthRequest="59"
+                                    HeightRequest="59"
+                                    Fill="White"/>
+                                <Image 
+                                   Source="dotnet_bot"
+                                   WidthRequest="54"
+                                   HeightRequest="54"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center">
+                                    <Image.Clip>
+                                        <EllipseGeometry
+                                            Center="27,27"
+                                            RadiusX="27"
+                                            RadiusY="27"  />
+                                    </Image.Clip>
+                                </Image>
+
+                            </Grid>
+
+                            <StackLayout Orientation="Vertical" Spacing="6">
+                                <Image
+                                    Source="ic_heart_empty.png" 
+                                    Style="{StaticResource SideImageStyle}">   
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHeartTapped" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                                <Label Style="{StaticResource SideLabelStyle}" Text="100" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical" Spacing="6">
+                                <Image Source="ic_comments.png" Style="{StaticResource SideImageStyle}" />
+                                <Label Style="{StaticResource SideLabelStyle}" Text="100" />
+                            </StackLayout>
+
+                            <StackLayout Orientation="Vertical" Spacing="6">
+                                <Image Source="ic_share.png" Style="{StaticResource SideImageStyle}" />
+                                <Label Style="{StaticResource SideLabelStyle}" Text="100" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!-- bottom -->
+                        <Grid 
+                            ColumnDefinitions="*, Auto"
+                            VerticalOptions="End"
+                            Margin="20,0,10,10">
+
+                            <StackLayout Orientation="Vertical" Grid.Column="0">
+                                <Label 
+                                    TextColor="White"
+                                    FontSize="12"
+                                    Text="Gymmr" 
+                                    HorizontalOptions="Start" />
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label 
+                                        Text="Original Audio"
+                                        FontSize="12"
+                                        VerticalTextAlignment="Center"
+                                        TextColor="White" />
+                                </StackLayout>
+
+                            </StackLayout>
+                        </Grid>
+
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

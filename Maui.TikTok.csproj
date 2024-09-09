@@ -57,6 +57,24 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\ic_add.png" />
+	  <None Remove="Resources\Images\ic_add_black.png" />
+	  <None Remove="Resources\Images\ic_artist.png" />
+	  <None Remove="Resources\Images\ic_comments.png" />
+	  <None Remove="Resources\Images\ic_discover.png" />
+	  <None Remove="Resources\Images\ic_heart.png" />
+	  <None Remove="Resources\Images\ic_home.png" />
+	  <None Remove="Resources\Images\ic_inbox.png" />
+	  <None Remove="Resources\Images\ic_live.png" />
+	  <None Remove="Resources\Images\ic_music.png" />
+	  <None Remove="Resources\Images\ic_scan.png" />
+	  <None Remove="Resources\Images\ic_search.png" />
+	  <None Remove="Resources\Images\ic_share.png" />
+	  <None Remove="Resources\Images\ic_user.png" />
+	  <None Remove="Resources\Images\logo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Maui.MediaElement" Version="4.1.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.82" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.82" />
